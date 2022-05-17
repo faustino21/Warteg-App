@@ -1,9 +1,9 @@
 
 //Global
-$primary-color1 : #2C3333;
-$primary-color2 : #395B64;
-$primary-color3 : #2666CF;
-$primary-color4 : #F5F2E7;
+$primary-color1 : #8D8DAA;
+$primary-color2 : #DFDFDE;
+$primary-color3 : #F7F5F2;
+$primary-color4 : #8fc4e3;
 
 *{
     margin: 0;
@@ -29,8 +29,49 @@ a{
             bottom: 10px
         };
         background-color: $primary-color2;
+        color: black;
     }
     .nav2{
         height: 100%;
     }   
+}
+
+.container1{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("https://images.pexels.com/photos/624015/pexels-photo-624015.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    .container2{
+        height: 60%;
+        width: 80%;
+        .logo{
+            background-color: rgba(55, 57, 55, 0.4);
+            color: wheat;
+            width: 100%;
+            h1{
+                font-weight: 900;
+                font-size: 12em;            
+            }
+        }
+        .title{
+            background-color: $primary-color3;
+            h2{
+                color: black;
+                font-weight: 900;
+            }
+            p{
+                color: black;
+                font-weight: 400;
+            }
+        }
+        Form{
+            background-color: rgba(55, 57, 55, 1.0);
+            .buttonSub{
+                background-color: $primary-color4;
+                color: black;
+            }
+        }
+    }
 }

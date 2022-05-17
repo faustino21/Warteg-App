@@ -14,15 +14,64 @@ a {
 .header {
   height: 20vh;
   width: 100vw;
-  background-color: #2C3333;
+  background-color: #8D8DAA;
 }
 
 .header .nav1 {
   margin-bottom: 10px;
-  background-color: #395B64;
+  background-color: #DFDFDE;
+  color: black;
 }
 
 .header .nav2 {
   height: 100%;
+}
+
+.container1 {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("https://images.pexels.com/photos/624015/pexels-photo-624015.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container1 .container2 {
+  height: 60%;
+  width: 80%;
+}
+
+.container1 .container2 .logo {
+  background-color: rgba(55, 57, 55, 0.4);
+  color: wheat;
+  width: 100%;
+}
+
+.container1 .container2 .logo h1 {
+  font-weight: 900;
+  font-size: 12em;
+}
+
+.container1 .container2 .title {
+  background-color: #F7F5F2;
+}
+
+.container1 .container2 .title h2 {
+  color: black;
+  font-weight: 900;
+}
+
+.container1 .container2 .title p {
+  color: black;
+  font-weight: 400;
+}
+
+.container1 .container2 Form {
+  background-color: #373937;
+}
+
+.container1 .container2 Form .buttonSub {
+  background-color: #8fc4e3;
+  color: black;
 }
 /*# sourceMappingURL=style.css.map */
