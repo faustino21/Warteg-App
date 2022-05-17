@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  height: 20vh;
+  width: 100vw;
+  background-color: #2C3333;
+}
+
+.header .nav1 {
+  margin-bottom: 10px;
+  background-color: #395B64;
+}
+
+.header .nav2 {
+  height: 100%;
+}
+/*# sourceMappingURL=style.css.map */

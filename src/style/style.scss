@@ -1,0 +1,36 @@
+
+//Global
+$primary-color1 : #2C3333;
+$primary-color2 : #395B64;
+$primary-color3 : #2666CF;
+$primary-color4 : #F5F2E7;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+//custom style by tag
+a{
+    text-decoration: none;
+}
+
+
+//styling
+.header {
+    height: 20vh;
+    width: 100vw;
+    background-color: $primary-color1;
+    .nav1{
+        margin: {
+            bottom: 10px
+        };
+        background-color: $primary-color2;
+    }
+    .nav2{
+        height: 100%;
+    }   
+}
