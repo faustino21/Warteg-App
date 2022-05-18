@@ -40,7 +40,7 @@ export default class Login extends Component {
                     <h2 className=''>Login</h2>
                     <p>By logging in you agree to the ridiculously long terms that you didn't bother to read</p>
                 </div>
-                <Form className='col-md-6 d-flex flex-column justify-content-center p-5 shadow rounded' onSubmit={this.handleSubmit}>
+                <Form className='col-md-6 d-flex flex-column justify-content-center p-5 shadow rounded'>
                     <Form.Group className="mb-3">
                         <Form.Label>Username</Form.Label>
                         <Form.Control type="text" placeholder="Username" id='uname'/>
