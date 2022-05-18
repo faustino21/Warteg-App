@@ -4,7 +4,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  color: white;
+  color: black;
 }
 
 a {
@@ -73,5 +73,10 @@ a {
 .container1 .container2 Form .buttonSub {
   background-color: #8fc4e3;
   color: black;
+}
+
+.signBody {
+  height: 100vh;
+  width: 100vw;
 }
 /*# sourceMappingURL=style.css.map */
