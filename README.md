@@ -1,6 +1,6 @@
 ## Note
 
-Kak, untuk yang tidak pakai routing ada di branch "noRouting"
+Kak, untuk login yang tidak pakai routing ada di branch "noRouting"
 
 # Getting Started with Create React App
 
