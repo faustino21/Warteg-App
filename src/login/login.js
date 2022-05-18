@@ -1,9 +1,21 @@
 import React, { Component } from 'react'
 import { Form } from "react-bootstrap";
-import { Link } from 'react-router-dom';
 
 export default class Login extends Component {
-  login = ()=>{
+    constructor(){
+        super()
+        this.state = {
+            num : 0
+        }
+    }
+
+    increment = () =>{
+        this.setState({
+            num : this.state.num + 1
+        })
+    }
+  
+    login = ()=>{
       let valParam = false
       const username = document.getElementById('uname').value
       const password = document.getElementById('password').value
@@ -12,11 +24,8 @@ export default class Login extends Component {
         console.log(username)  
         valParam = true
       } else {
-          let x = this.props.number + 1
-          this.props.setNumber(x)
-          return
+        this.increment()
       }
-
       this.props.validate(valParam)
   }
 
@@ -47,12 +56,11 @@ export default class Login extends Component {
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
-                    <p className="my-3 text-danger" hidden={this.props.number === 0}>
-                        * Invalid login, please try again
+                    <p className="my-3 text-danger" hidden={this.state.num === 0}>
+                        *Invalid login, please try again
                     </p>
-                    <Link to="/home"className="buttonSub btn btn-lg"onClick={()=>this.login()}>Submit</Link>
+                    <button type="button" className="buttonSub btn btn-lg" onClick={()=>this.login()}>Login</button>
                 </Form>
-            
           </div>
       </div>
     )

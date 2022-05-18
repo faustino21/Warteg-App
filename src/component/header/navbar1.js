@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import "bootstrap"
-import { Link } from 'react-router-dom';
 
 export default class Navbar1 extends Component {
+  
+  logout = ()=>{
+    this.props.validate(false)
+  }
+  
   render() {
     return (
       <nav className='nav1 d-md-flex justify-content-md-end'>
@@ -19,8 +23,10 @@ export default class Navbar1 extends Component {
           </a>
         </div>
         <div className='p-3 text-dark'>
-          <Link to="/" className='text-dark'>Logout</Link>
-          <i class="bi bi-box-arrow-right text-dark mx-2"></i>
+          <a href="" onClick={()=>this.logout()}>
+            <span className='text-dark'>logout</span>
+            <i className="bi bi-box-arrow-right text-dark mx-2"></i>
+          </a>
         </div>
       </nav>
     )
