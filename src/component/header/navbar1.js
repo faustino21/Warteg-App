@@ -4,7 +4,7 @@ import "bootstrap"
 export default class Navbar1 extends Component {
   
   logout = ()=>{
-    this.props.validate(false)
+    this.props.validate(0)
   }
   
   render() {

@@ -3,54 +3,50 @@ import React, { Component } from 'react'
 export default class SignUp extends Component {
 
     handlerSubmit = () => {
-        console.log("ini update");
         this.props.signUp()
     }
 
     handlerChange = (ev) => {
-        console.log(ev)
         this.props.change(ev.target.name, ev.target.value)
     }
 
   render() {
     return (
-      <div className='signBody d-flex justify-content-center align-items-center'>
-          <div className='cons'>
+      <div className='sign-body d-flex justify-content-center align-items-center'>
+          <div className='cons row'>
             
-            <div className='signUpGreet'>
-                <div>
-                    <h1>Hello</h1>
-                    <p>Just let us know yoursefl and let's have fun with us</p>
+            <div className='sign-up-greet col-6 d-flex flex-column justify-content-center'>
+                <div className='wrapper-hello'>
+                    <h1 className='text-light'>Hello</h1>
+                    <p className='text-light'>Just let us know yourself and let's have fun with us</p>
                 </div>
             </div>
 
-            <div className='signUpForm'>
+            <div className='sign-up-form col-6 p-4'>
                 <div className='containerForm'>
-                    <form>
-                        <h1>Create Account</h1>
-                        <div className='email'>
-                            <i className='bi-envelope'></i>
-                            <input name='email' type={"email"} placeholder="Email" onChange={this.handlerChange} required/>   
+                    <form className='d-flex flex-column justify-content-center text-center'>
+                        <h1 className='fs-3 fw-6'>Create Account</h1>
+                        <div className='email m-2'>
+                            {/* <i className='bi-envelope m-2'></i> */}
+                            <input name='email' type={"email"} className="form-control" placeholder="Email" onChange={this.handlerChange} required/>   
                         </div>
-                        <div className='username'>
-                            <i className='bi-person-fill'></i>
-                            <input name='username' type={"text"} placeholder="Username" onChange={this.handlerChange} required/>
+                        <div className='username m-2 justify-self-start'>
+                            {/* <i className='bi-person-fill m-2'></i> */}
+                            <input name='username' className="form-control" type={"text"} placeholder="Username" onChange={this.handlerChange} required/>
                         </div>
-                        <div className='password'>
-                            <i className='bi-lock-fill'></i>
-                            <input name='password' type={"password"} placeholder="Password" onChange={this.handlerChange} required/>
+                        <div className='password m-2'>
+                            {/* <i className='bi-lock-fill m-2'></i> */}
+                            <input name='password' className="form-control" type={"password"} placeholder="Password" onChange={this.handlerChange} required/>
                         </div>
-                        <button type='button' className='btn btn-primary' onClick={()=>this.handlerSubmit()}>Sign Up</button>
-                        <div className='social-login'>
-                            <a href='#'><i className='bi-google'></i></a>
-                            <a href='#'><i className='bi-facebook'></i></a>
-                            <a href='#'><i className='bi-linkedin'></i></a>
+                        <button type='button' className='btn btn-primary align-self-center my-2' style={{width: "40%"}} onClick={()=>this.handlerSubmit()}>Sign Up</button>
+                        <div className='social-login d-flex flex-row justify-content-center my-2'>
+                            <a href='#'><i className='bi-google mx-2'></i></a>
+                            <a href='#'><i className='bi-facebook mx-2'></i></a>
+                            <a href='#'><i className='bi-linkedin mx-2'></i></a>
                         </div>
+                        <a href='#'>Sign in</a>
                     </form>
-                    <p>{this.props.form['username']}</p>
-                    <p>{this.props.form['email']}</p>
-                    <p>{this.props.form['password']}</p>
-                    {this.props.data.map((akun, i) => <p key={i}>{akun.email}</p>)}
+                    {/* {this.props.data.map((akun, i) => <p key={i}>{akun.email}</p>)} */}
 
                 </div>
             </div>

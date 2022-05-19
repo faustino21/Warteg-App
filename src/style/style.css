@@ -71,12 +71,44 @@ a {
 }
 
 .container1 .container2 Form .buttonSub {
-  background-color: #8fc4e3;
+  background-color: #6dccd7;
   color: black;
 }
 
-.signBody {
+.sign-body {
   height: 100vh;
   width: 100vw;
+  background-color: #8D8DAA;
+}
+
+.sign-body .cons .sign-up-greet {
+  background: -webkit-gradient(linear, left top, right top, from(#0040ef), to(#00efc3));
+  background: linear-gradient(to right, #0040ef, #00efc3);
+}
+
+.sign-body .cons .sign-up-form {
+  background-color: #F7F5F2;
+}
+
+.menu-body {
+  background-color: #DFDFDE;
+}
+
+.menu-body h1 {
+  font-weight: 900;
+}
+
+.menu-body .wrapper-menu {
+  background-color: #8D8DAA;
+}
+
+.menu-body .wrapper-menu .menu-button {
+  height: 15%;
+  width: 40%;
+  background-color: #6dccd7;
+}
+
+.body-menu-makanan {
+  background-color: #8D8DAA;
 }
 /*# sourceMappingURL=style.css.map */

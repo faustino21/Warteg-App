@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Component } from 'react';
 import Header from './component/header/header';
 import Login from './login/login';
+import Menu from './menu/menu';
 import SignUp from './signup/signup';
 import "./style/style.css";
 
@@ -9,14 +10,13 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      val : false,
-      data : [0],
+      val : 0,
+      data : [],
       form : {
-        email : 'tinoaron21',
-        username : 'efwfiw',
-        password : '1234'
+        email : '',
+        username : '',
+        password : ''
       },
-      num : 0
     }
   }
 
@@ -44,12 +44,6 @@ class App extends Component {
     }
   }
 
-  updateNumber = () => {
-    this.setState({
-      num : this.state.num + 1
-    })
-  }
-
   getVal = (valParam) =>{
     this.setState({
       val : valParam
@@ -58,16 +52,13 @@ class App extends Component {
 
   logged = () => {
     let x
-    // if (!this.state.val) {
-    //   console.log(1);
-    //   x = <Login validate={this.getVal}/>
-    // } else {
-    //   x = <Header validate={this.getVal}/>
-    // }
-    x = (
-    <>
-    <SignUp signUp={this.daftar} change={this.updateForm} form={this.state.form} data={this.state.data}/>
-    </>)
+    if (this.state.val === 0) {
+      x = <Login validate={this.getVal} data={this.state.data}/>
+    } else if(this.state.val === 1) {
+      x = <SignUp signUp={this.daftar} change={this.updateForm}/>
+    } else {
+      x = <Menu validate={this.getVal}/>
+    }
     return x
   }
 

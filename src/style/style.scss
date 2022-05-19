@@ -3,7 +3,7 @@
 $primary-color1 : #8D8DAA;
 $primary-color2 : #DFDFDE;
 $primary-color3 : #F7F5F2;
-$primary-color4 : #8fc4e3;
+$primary-color4 : #6dccd7;
 
 *{
     margin: 0;
@@ -76,7 +76,36 @@ a{
     }
 }
 
-.signBody{
+.sign-body{
     height: 100vh;
     width: 100vw;
+    background-color: $primary-color1;
+    .cons{
+        .sign-up-greet{
+            background: -webkit-linear-gradient(to right, #0040ef, #00efc3);
+            background: linear-gradient(to right, #0040ef, #00efc3);
+        }
+        .sign-up-form{
+            background-color: $primary-color3;
+        }
+    }
+}
+
+.menu-body{
+    background-color: $primary-color2;
+    h1{
+        font-weight: 900;
+    }
+    .wrapper-menu{
+        background-color: $primary-color1;
+        .menu-button{
+            height: 15%;
+            width: 40%;
+            background-color: $primary-color4;
+        }
+    }
+}
+
+.body-menu-makanan{
+    background-color: $primary-color1;
 }
