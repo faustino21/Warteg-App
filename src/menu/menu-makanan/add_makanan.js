@@ -1,19 +1,57 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import ActionType from '../../redux/globalAction'
 
-export default class AddMakanan extends Component {
+class AddMakanan extends Component {
+
+    constructor(){
+        super()
+        this.state = {
+            id : '',
+            name : '',
+            password : ''
+        }
+
+    }
+
+    handlerId = (e) => {
+        this.setState({
+            id : e.target.value
+        })
+    }
+    handlerName = (e) => {
+        this.setState({
+            name : e.target.value
+        })
+    }
+    handlerPrice = (e) => {
+        this.setState({
+            price : e.target.value
+        })
+    }
+    
+    handlerSubmit = () => {
+        this.props.submit(this.state)
+        this.props.cancel(false)
+    }
+
+    handlerCancel = () => {
+        this.props.cancel(false)
+    }
+
   render() {
     return (
         <>        
-        <form className='d-flex flex-column justify-content-center text-center' onSubmit={this.handlerSubmit}>
+        <form className='d-flex flex-column justify-content-center text-center' onSubmit={()=> this.handlerSubmit()}>
             <h1 className='fs-3 fw-6'>ADD MENU</h1>
             <div className='m-2'>
-                <input name='todo' type='text' className="form-control" placeholder="Id" onChange={this.handlerToDo}  required/>   
+                <input name='todo' type='text' className="form-control" placeholder="Id" onChange={this.handlerId}  required/>   
             </div>
             <div className='m-2 justify-self-start'>
-                <input name='desc' className="form-control" type='text' placeholder="Name"  onChange={this.handlerDesc} required/>
+                <input name='desc' className="form-control" type='text' placeholder="Name"  onChange={this.handlerName} required/>
             </div>
             <div className='m-2 justify-self-start'>
-                <input name='desc' className="form-control" type='number' placeholder="Price"  onChange={this.handlerDesc} required/>
+                <input name='desc' className="form-control" type='number' placeholder="Price"  onChange={this.handlerPrice} required/>
             </div>
             <div className='row'>
             <button type='button' className='btn btn-primary mx-2 my-1' style={{width: "20%"}} onClick={this.handlerCancel}>CANCEL</button>
@@ -24,3 +62,18 @@ export default class AddMakanan extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+        submit : (data) => dispatch({
+            type : ActionType.ADD_MENUS,
+            addMenuS : data
+        }),
+        cancel : (data) => dispatch({
+            type : ActionType.NAV_FORM_MENU,
+            setAddForm : data        
+          })
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AddMakanan)

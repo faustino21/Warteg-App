@@ -1,7 +1,7 @@
 import ActionType from "./globalAction"
 
 const globalState = {
-    isLogin : true,
+    isLogin : false,
     addFormMenu : false,
     addFormTable : false,
     nav : '',
@@ -54,7 +54,7 @@ const rootReducer = (state = globalState, action) => {
         }
     } else if (action.type === ActionType.LOGOUT){
         return {
-            ...state.isLogin,
+            ...state,
             isLogin : action.isLogin
         }
     } else if (action.type === ActionType.NAV_FORM_MENU){

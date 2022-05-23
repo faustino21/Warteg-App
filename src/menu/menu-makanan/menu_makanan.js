@@ -10,7 +10,7 @@ class ListMakanan extends Component {
   }
 
   render() {
-    console.log("ini di render", this.props.navAddForm);
+    console.log("ini di render", this.props);
     return (
       <>
       {
@@ -52,6 +52,7 @@ class ListMakanan extends Component {
 const mapStateToProps = (state) => {
   console.log("ini map state props", state);
   return {
+      isLogin : state.isLogin,
       food : state.foods,
       navAddForm : state.addFormMenu
     }
