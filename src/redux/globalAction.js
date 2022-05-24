@@ -6,7 +6,6 @@ const ActionType = {
     REMOVE_TABLE : 'REMOVE TABLE',
     REMOVE_MENUS : 'REMOVE MENU',
     SET_NAV : 'SET NAV',
-    LOGOUT : 'LOGOUT'
 } 
 
 export default ActionType;

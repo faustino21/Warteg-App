@@ -6,8 +6,6 @@ import Navbar from './navbar/navbar';
 import "./style/style.css";
 
 class App extends Component {
-  
-
   render(){
     return (
       <>
@@ -21,7 +19,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return{
-    isLogin : state.isLogin
+    isLogin : state.auth.isLogin
   }
 }
 
