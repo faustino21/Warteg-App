@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Form } from "react-bootstrap";
 import { connect } from 'react-redux';
-import ActionType from '../redux/globalAction';
+import AuthAction from '../redux/auth/authAction';
 
 class Login extends Component {
     constructor(){
@@ -13,13 +13,13 @@ class Login extends Component {
         }
     }
 
-    handleChangEmail = (e) => {
+    handleChangeEmail = (e) => {
         this.setState({
             email : e.target.value
         })
     }
 
-    handleChangPassword = (e) => {
+    handleChangePassword = (e) => {
         this.setState({
             password : e.target.value
         })
@@ -51,7 +51,7 @@ class Login extends Component {
                 <Form className='col-md-6 d-flex flex-column justify-content-center p-5 shadow rounded' onSubmit={this.handleSubmit}>
                     <Form.Group className="mb-3">
                         <Form.Label>Username</Form.Label>
-                        <Form.Control type="text" placeholder="Username" id='uname' onChange={this.handleChangEmail}/>
+                        <Form.Control type="text" placeholder="Username" id='uname' onChange={this.handleChangeEmail}/>
                         <Form.Text className="text-muted">
                         We'll never share your identity with anyone else.
                         </Form.Text>
@@ -59,7 +59,7 @@ class Login extends Component {
 
                     <Form.Group className="mb-3">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" id='password' onChange={this.handleChangPassword}/>
+                        <Form.Control type="password" placeholder="Password" id='password' onChange={this.handleChangePassword}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
@@ -77,7 +77,7 @@ class Login extends Component {
 
 const mapstateToProps = (state) => {
     return {
-        user : state.user
+        user : state.auth.user
 
     }
 }
@@ -85,8 +85,8 @@ const mapstateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         isLogin : (data) => dispatch({
-            type : ActionType.LOGOUT,
-            isLogin : data
+            type : AuthAction.IS_LOGIN,
+            payload : data
         })
     }
 }

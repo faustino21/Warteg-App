@@ -2,17 +2,6 @@ import ActionType from "./globalAction"
 
 const globalState = {
     addFormMenu : false,
-    addFormTable : false,
-    nav : '',
-    tables : [{
-            id : "001",
-            table : "Table 1",
-            status : "available"
-        },{
-            id : "002",
-            table : "Table 2",
-            status : "unavailable"
-        }],
     foods : [{
             id : '001',
             name : 'Ayam Bakar',
@@ -34,11 +23,6 @@ const rootReducer = (state = globalState, action) => {
         return{
             ...state,
             menus : [...state, action.addMenus]
-        }
-    } else if (action.type === ActionType.SET_NAV){
-        return {
-            ...state,
-            nav : action.setNav
         }
     } else if (action.type === ActionType.NAV_FORM_MENU){
         return {

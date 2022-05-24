@@ -52,9 +52,9 @@ class ListMakanan extends Component {
 const mapStateToProps = (state) => {
   console.log("ini map state props", state);
   return {
-      isLogin : state.isLogin,
-      food : state.foods,
-      navAddForm : state.addFormMenu
+      isLogin : state.auth.isLogin,
+      food : state.global.foods,
+      navAddForm : state.global.addFormMenu
     }
 }
 

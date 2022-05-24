@@ -5,7 +5,6 @@ const ActionType = {
     NAV_FORM_TABLE : 'NAV FORM TABLE',
     REMOVE_TABLE : 'REMOVE TABLE',
     REMOVE_MENUS : 'REMOVE MENU',
-    SET_NAV : 'SET NAV',
 } 
 
 export default ActionType;

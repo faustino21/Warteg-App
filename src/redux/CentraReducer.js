@@ -1,14 +1,12 @@
 import { combineReducers } from "redux";
 import authReducer from "./auth/authReducer";
 import rootReducer from "./globalReducer";
-
-
-const auth = authReducer
-const global = rootReducer
-
-
+import navReducer from "./navigation/navReducer";
+import tableReducer from "./table/tableReducer";
 
 export default combineReducers({
-    auth : auth,
-    global : global
+    auth : authReducer,
+    nav : navReducer,
+    table : tableReducer,
+    global : rootReducer
 })

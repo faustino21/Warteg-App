@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ListMeja from '../menu/manajemen_meja/manajemen_meja'
 import ListMakanan from '../menu/menu-makanan/menu_makanan'
-import ActionType from '../redux/globalAction'
+import AuthAction from '../redux/auth/authAction'
+import NavAction from '../redux/navigation/navAction'
 import Home from './home'
 
 class Navbar extends Component {
@@ -59,20 +60,20 @@ class Navbar extends Component {
 const mapStateToProps = (state) => {
   console.log("state di navbar", state);
     return{
-        nav : state.nav
+        nav : state.nav.navHero
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return{
         setNav : (data) => dispatch({
-            type : ActionType.SET_NAV,
+            type : NavAction.SET_NAV,
             setNav : data
         }) ,
 
         logout : (data) => dispatch({
-            type : ActionType.LOGOUT,
-            isLogin : data
+            type : AuthAction.IS_LOGIN,
+            paylaod : data
         })
     }
 }

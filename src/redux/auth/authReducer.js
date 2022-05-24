@@ -18,9 +18,10 @@ const authReducer = (state = authState, action) => {
     if (action.type === AuthAction.IS_LOGIN){
         return{
             ...state, 
-            isLogin : action.data
+            isLogin : action.payload
         }
     }
+    return state;
 }
 
 export default authReducer
