@@ -14,12 +14,7 @@ const globalState = {
 }
 
 const rootReducer = (state = globalState, action) => {
-    if(action.type === ActionType.ADD_TABLE){
-        return {
-            ...state,
-            tables : [...state, action.addTable]
-        }
-    } else if (action.type === ActionType.ADD_MENUS){
+    if (action.type === ActionType.ADD_MENUS){
         return{
             ...state,
             menus : [...state, action.addMenus]

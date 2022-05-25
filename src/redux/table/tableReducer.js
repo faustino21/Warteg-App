@@ -15,11 +15,16 @@ const tableState = {
 
 const tableReducer = (state = tableState, action) => {
     if(action.type === TableAction.ADD_TABLE){
-        return { ...state,
-        tables : [...state, action.addTable]
+        return {
+            ...state,
+            tables : [...state, action.addTable]
         }
+    } else if (action.type === TableAction.NAV_TO_FORM)
+        return {
+            ...state,
+            addFormTable : action.payload
     }
-    return state
+    return state;
 }
 
 export default tableReducer;

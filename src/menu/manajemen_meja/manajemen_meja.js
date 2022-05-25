@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
-import TableAction from '../../redux/table/tableAction'
 import { connect } from 'react-redux'
+import TableAction from '../../redux/table/tableAction'
+import TableForm from './tableForm'
+
 
 const ListMeja = (props) => {
-  const [table, setTable] = useState(this.props.tables)
+
   return(
     <>
-      <button type="button" className="btn btn-primary m-3" onClick={()=>this.handleAddForm(true)}>Add Menu</button>
+    {
+      props.addFormTable ? <TableForm/> : 
+      <>
+      <button type="button" className="btn btn-primary m-3" onClick={()=>props.toForm(true)}>Add Menu</button>
         <table className="table">
           <thead>
             <tr>
@@ -17,7 +21,7 @@ const ListMeja = (props) => {
           </thead>
           <tbody>
             {
-              table.map((data, i) => {
+              props.tables.map((data, i) => {
                 return(
                 <tr key={i}>
                   <th scope="row">{i + 1}</th>
@@ -31,21 +35,25 @@ const ListMeja = (props) => {
           }
         </tbody>
       </table>
+      </>
+
+    }
     </>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-     tables : state.table.tables
+     tables : state.table.tables,
+     addFormTable : state.table.addFormTable
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addTable : (data) => dispatch({
-      type : TableAction.ADD_TABLE,
-      addTable : data
+    toForm : (data) => dispatch({
+      type : TableAction.NAV_TO_FORM,
+      payload : data
     })
   }
 }
