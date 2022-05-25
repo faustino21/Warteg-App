@@ -4,11 +4,11 @@ const tableState = {
     tables : [{
         id : "001",
         table : "Table 1",
-        status : "available"
+        status : true
     },{
         id : "002",
         table : "Table 2",
-        status : "unavailable"
+        status : false
     }],
     addFormTable : false
 }

@@ -15,9 +15,10 @@ const globalState = {
 
 const rootReducer = (state = globalState, action) => {
     if (action.type === ActionType.ADD_MENUS){
+        console.log("submit called");
         return{
             ...state,
-            menus : [...state, action.addMenus]
+            foods : [...state, action.addMenus]
         }
     } else if (action.type === ActionType.NAV_FORM_MENU){
         return {

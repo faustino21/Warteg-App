@@ -26,7 +26,7 @@ const ListMeja = (props) => {
                 <tr key={i}>
                   <th scope="row">{i + 1}</th>
                   <td>{data.table}</td>
-                  <td>{data.status}</td>
+                  <td className={data.status ? 'text-success' : 'text-danger'}>{data.status? "Available" : "Unavailable"}</td>
                   <td>
                   <button type='button' className='btn btn-danger'>Remove</button>
                   </td>

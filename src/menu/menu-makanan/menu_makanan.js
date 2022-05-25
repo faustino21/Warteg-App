@@ -31,13 +31,13 @@ class ListMakanan extends Component {
               this.props.food.map((data, i) => {
                 return(
                 <tr key={i}>
-                  <th scope="row">{i + 1}</th>
-                  <td>{data.name}</td>
-                  <td>{data.price}</td>
-                  <td>
-                  <button type='button' className='btn btn-danger'>Remove</button>
-                  </td>
-              </tr>
+                    <th scope="row">{i + 1}</th>
+                    <td>{data.name}</td>
+                    <td>{data.price}</td>
+                    <td>
+                    <button type='button' className='btn btn-danger'>Remove</button>
+                    </td>
+                </tr>
             )})
           }
         </tbody>
@@ -52,7 +52,6 @@ class ListMakanan extends Component {
 const mapStateToProps = (state) => {
   console.log("ini map state props", state);
   return {
-      isLogin : state.auth.isLogin,
       food : state.global.foods,
       navAddForm : state.global.addFormMenu
     }
