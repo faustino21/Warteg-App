@@ -1,7 +1,7 @@
 import AuthAction from "./authAction"
 
 const authState = {
-    isLogin : true,
+    isLogin : false,
     user : [
         {
             email : 'admin@gmail.com',
