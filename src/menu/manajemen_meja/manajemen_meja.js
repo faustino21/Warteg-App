@@ -1,16 +1,29 @@
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import TableAction from '../../redux/table/tableAction'
 import TableForm from './tableForm'
 
 
-const ListMeja = (props) => {
+const ListMeja = () => {
+  
+  const table = useSelector(state => state.table)
+  const dispatch = useDispatch();
+
+  const toForm = () => {
+    dispatch({type : TableAction.NAV_TO_FORM, payload : true})
+  }
+
+  const removeTable = (e) => {
+      dispatch({type : TableAction.REMOVE_TABLE, payload : e.target.name})
+  }
+
+  console.log("ini data table: ", table);
 
   return(
     <>
-    {
-      props.addFormTable ? <TableForm/> : 
+      {
+      table.addFormTable ? <TableForm/> : 
       <>
-      <button type="button" className="btn btn-primary m-3" onClick={()=>props.toForm(true)}>Add Menu</button>
+      <button type="button" className="btn btn-primary m-3" onClick={toForm}>Add Menu</button>
         <table className="table">
           <thead>
             <tr>
@@ -21,14 +34,14 @@ const ListMeja = (props) => {
           </thead>
           <tbody>
             {
-              props.tables.map((data, i) => {
+              table.tables.map((data, i) => {
                 return(
                 <tr key={i}>
                   <th scope="row">{i + 1}</th>
                   <td>{data.table}</td>
                   <td className={data.status ? 'text-success' : 'text-danger'}>{data.status? "Available" : "Unavailable"}</td>
                   <td>
-                  <button type='button' className='btn btn-danger'>Remove</button>
+                  <button type='button' className='btn btn-danger' name={data.id} onClick={removeTable}>Remove</button>
                   </td>
               </tr>
             )})
@@ -42,20 +55,5 @@ const ListMeja = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-     tables : state.table.tables,
-     addFormTable : state.table.addFormTable
-  }
-}
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toForm : (data) => dispatch({
-      type : TableAction.NAV_TO_FORM,
-      payload : data
-    })
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ListMeja);
+export default ListMeja;

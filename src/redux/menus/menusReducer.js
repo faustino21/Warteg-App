@@ -1,6 +1,6 @@
-import ActionType from "./globalAction"
+import MenuAction from "./menuAction";
 
-const globalState = {
+const menuState = {
     addFormMenu : false,
     foods : [{
             id : '001',
@@ -13,24 +13,25 @@ const globalState = {
         }]
 }
 
-const rootReducer = (state = globalState, action) => {
-    if (action.type === ActionType.ADD_MENUS){
+const menuReducer = (state = menuState, action) => {
+    if (action.type === MenuAction.ADD_MENUS){
         console.log("submit called");
         return{
             ...state,
             foods : [...state.foods, action.addMenus]
         };
-    } else if (action.type === ActionType.NAV_FORM_MENU){
+    } else if (action.type === MenuAction.NAV_FORM_MENU){
         return {
             ...state,
             addFormMenu : action.setAddForm
         }
-    } else if (action.type === ActionType.REMOVE_MENUS){
+    } else if (action.type === MenuAction.REMOVE_MENUS){
         return{
-            ...state
+            ...state,
+            foods : [...state.foods.filter((data)=> data.id !== action.foods)]
         }
     }
     return state;
 }
 
-export default rootReducer
+export default menuReducer

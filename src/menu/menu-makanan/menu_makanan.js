@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import ActionType from '../../redux/globalAction'
+import MenuAction from '../../redux/menus/menuAction'
 import AddMakanan from './add_makanan'
 
 class ListMakanan extends Component {
   
   handleAddForm = (data) => {
     this.props.addForm(data)
+  }
+
+  handleRemove = (e) => {
+    this.props.remove(e.target.name)
   }
 
   render() {
@@ -35,7 +39,7 @@ class ListMakanan extends Component {
                     <td>{data.name}</td>
                     <td>{data.price}</td>
                     <td>
-                    <button type='button' className='btn btn-danger'>Remove</button>
+                    <button type='button' className='btn btn-danger' name={data.id} onClick={this.handleRemove}>Remove</button>
                     </td>
                 </tr>
             )})
@@ -52,16 +56,20 @@ class ListMakanan extends Component {
 const mapStateToProps = (state) => {
   console.log("ini map state props", state);
   return {
-      food : state.global.foods,
-      navAddForm : state.global.addFormMenu
+      food : state.menu.foods,
+      navAddForm : state.menu.addFormMenu
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
       addForm : (data) => dispatch({
-        type : ActionType.NAV_FORM_MENU,
+        type : MenuAction.NAV_FORM_MENU,
         setAddForm : data        
+      }),
+      remove : (data) => dispatch({
+        type : MenuAction.REMOVE_MENUS,
+        foods : data
       })
   }
 }

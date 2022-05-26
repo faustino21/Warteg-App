@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import ActionType from '../../redux/globalAction'
+import MenuAction from '../../redux/menus/menuAction'
 
 class AddMakanan extends Component {
 
@@ -68,11 +68,11 @@ class AddMakanan extends Component {
 const mapDispatchToProps = (dispatch) => {
     return{
         submit : (data) => dispatch({
-            type : ActionType.ADD_MENUS,
+            type : MenuAction.ADD_MENUS,
             addMenus : data
         }),
         cancel : (data) => dispatch({
-            type : ActionType.NAV_FORM_MENU,
+            type : MenuAction.NAV_FORM_MENU,
             setAddForm : data        
           })
     }

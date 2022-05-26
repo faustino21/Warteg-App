@@ -1,25 +1,32 @@
 import { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import TableAction from "../../redux/table/tableAction";
 
-const TableForm = (props) => {
+const TableForm = () => {
+    
+    const dispatch = useDispatch()
     const [table, setTable] = useState({
         id : '',
         table : '',
-        status : ''
+        status : true
     })
 
+   const toTableList = () => {
+       dispatch({type : TableAction.NAV_TO_FORM, payload : false})
+   }
+
     const handleChange = (e) => {
-        setTable({
-            ...table,
-            [e.target.name] : e.target.value 
-        }, console.log(e.target.name, e.target.value))
+        setTable(previousState =>{
+            return {...previousState, [e.target.name] : e.target.value}
+        })
     }
 
-    const handleSubmit = () => {
-        props.submit(table)
-        props.toForm(false)
+    const handleSubmit = (e) => {
+        dispatch({type : TableAction.ADD_TABLE, addTable : table})
+        dispatch({type : TableAction.NAV_TO_FORM, payload : false})
+        e.preventDefault()
     }
+
 
     return(
         <>        
@@ -33,12 +40,12 @@ const TableForm = (props) => {
             </div>
             <div className='m-2 justify-self-start'>
                <select name="status" onChange={handleChange}>
-                    <option value="available">Available</option>
-                    <option value="unavailable">Unavailable</option>
+                    <option value={true}>Available</option>
+                    <option value={false}>Unavailable</option>
                </select>
             </div>
             <div className='row'>
-            <button type='button' className='btn btn-primary mx-2 my-1' style={{width: "20%"}} onClick={()=>props.toForm(false)}>CANCEL</button>
+            <button type='button' className='btn btn-primary mx-2 my-1' style={{width: "20%"}} onClick={toTableList}>CANCEL</button>
             <button type='submit' className='btn btn-primary mx-2 my-1' style={{width: "20%"}}>Submit</button>    
             </div>             
         </form>
@@ -46,19 +53,5 @@ const TableForm = (props) => {
     )
 }
 
- const mapDispatchToProps = (dispatch) => {
-    return {
-        toForm : (data) => dispatch({
-            type : TableAction.NAV_TO_FORM,
-            payload : data
-        }),
 
-        submit : (data) => dispatch({
-            type : TableAction.ADD_TABLE,
-            addTable : data
-        })
-
-    }
- }
-
-export default connect(null, mapDispatchToProps)(TableForm);
+export default TableForm;
