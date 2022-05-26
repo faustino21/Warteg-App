@@ -9,7 +9,7 @@ class AddMakanan extends Component {
         this.state = {
             id : '',
             name : '',
-            password : ''
+            price : ''
         }
 
     }
@@ -31,6 +31,7 @@ class AddMakanan extends Component {
     }
     
     handlerSubmit = (e) => {
+        console.log("ini submit");
         this.props.submit(this.state)
         this.handlerCancel()
         e.preventDefault()
@@ -43,20 +44,20 @@ class AddMakanan extends Component {
   render() {
     return (
         <>        
-        <form className='d-flex flex-column justify-content-center text-center'>
+        <form className='d-flex flex-column justify-content-center text-center' onSubmit={this.handlerSubmit}>
             <h1 className='fs-3 fw-6'>ADD MENU</h1>
             <div className='m-2'>
-                <input name='todo' type='text' className="form-control" placeholder="Id" onChange={this.handlerId}  required/>   
+                <input name='id' type='text' className="form-control" placeholder="Id" onChange={this.handlerId}  required/>   
             </div>
             <div className='m-2 justify-self-start'>
-                <input name='desc' className="form-control" type='text' placeholder="Name"  onChange={this.handlerName} required/>
+                <input name='name' className="form-control" type='text' placeholder="Name"  onChange={this.handlerName} required/>
             </div>
             <div className='m-2 justify-self-start'>
-                <input name='desc' className="form-control" type='number' placeholder="Price"  onChange={this.handlerPrice} required/>
+                <input name='price' className="form-control" type='number' placeholder="Price"  onChange={this.handlerPrice} required/>
             </div>
             <div className='row'>
             <button type='button' className='btn btn-primary mx-2 my-1' style={{width: "15%"}} onClick={this.handlerCancel}>Cancel</button>
-            <button type='button' className='btn btn-primary mx-2 my-1' style={{width: "15%"}} onClick={()=>this.handlerSubmit()}>Submit</button>    
+            <button type='submit' className='btn btn-primary mx-2 my-1' style={{width: "15%"}}>Submit</button>    
             </div>             
         </form>
         </>

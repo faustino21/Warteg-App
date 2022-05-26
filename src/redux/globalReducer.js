@@ -18,12 +18,16 @@ const rootReducer = (state = globalState, action) => {
         console.log("submit called");
         return{
             ...state,
-            foods : [...state, action.addMenus]
-        }
+            foods : [...state.foods, action.addMenus]
+        };
     } else if (action.type === ActionType.NAV_FORM_MENU){
         return {
             ...state,
             addFormMenu : action.setAddForm
+        }
+    } else if (action.type === ActionType.REMOVE_MENUS){
+        return{
+            ...state
         }
     }
     return state;
