@@ -1,0 +1,512 @@
+{
+  "uuid": "bbe5471c-6892-4f72-8700-d475e1577615",
+  "lastMigration": 20,
+  "name": "Livecode",
+  "endpointPrefix": "api",
+  "latency": 1500,
+  "port": 3002,
+  "routes": [
+    {
+      "uuid": "748d36ef-6b59-4a63-aed1-f65034966862",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "auth/login",
+      "responses": [
+        {
+          "uuid": "cb34437d-277e-4e59-89c4-7585cce3c319",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "881a2e7c-0811-49fa-9652-4152b0576379",
+          "body": "{\n  \"status\":\"SUCCESS\",\n  \"message\":\"Success Login\",\n  \"data\":{\n    \"name\": \"Administrator\"\n  },\n  \"token\" : \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqbC5oIGRhaGxhbiIsIm5hbWUiOiJFbmlnbWFjYW1wIiwiaWF0IjoxNTE2MjM5MDIyfQ.KzVXc4mc90kY_MxM0ASwrlIs4PfxZU3ACaEj7UTGgTg\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "email",
+              "value": "admin@example.com",
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "password",
+              "value": "12345678",
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "8cc7b424-9404-4892-b0f7-0b6dcea92583",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "auth/logout",
+      "responses": [
+        {
+          "uuid": "fc435197-0aac-4bd4-a2d7-ca760aa6c712",
+          "body": "{\n  \"status\":\"Success\",\n  \"message\":\"Success Logout\",\n  \"data\":{}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "d1d196dc-e7cb-438b-966e-a43fd363e5f8",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "menus",
+      "responses": [
+        {
+          "uuid": "42520e6c-1822-4d5b-bafd-cdc70464dd7d",
+          "body": "{\n  \"status\":\"200\",\n  \"message\":\"\",\n  \"data\":[\n    {\n      \"id\" : \"MN001\",\n      \"name\" : \"Ketoprak Rahasia\",\n      \"price\" : 15000\n    },\n    {\n      \"id\" : \"MN002\",\n      \"name\" : \"Tahu bulat\",\n      \"price\" : 5000\n    },\n    {\n      \"id\" : \"MN003\",\n      \"name\" : \"Bakso Merchon\",\n      \"price\" : 25000\n    },\n    {\n      \"id\" : \"MN004\",\n      \"name\" : \"Intel Spesial\",\n      \"price\" : 14000\n    },\n    {\n      \"id\" : \"MN005\",\n      \"name\" : \"Jus Alpukat\",\n      \"price\" : 13000\n    }\n    ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "3993edda-ae7a-4626-8ca9-63a59bcbc763",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "menus/:id",
+      "responses": [
+        {
+          "uuid": "c38c904b-8d83-46c3-92a4-e7a46bc23b96",
+          "body": "{\n      \"id\" : \"MN001\",\n      \"name\" : \"Ketoprak Rahasia\",\n      \"price\" : 15000\n    }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "4bd5d00b-eb5d-4b62-9326-b20c37cde966",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "menus",
+      "responses": [
+        {
+          "uuid": "6299a647-cefa-4a1c-9f6f-33a6c2b03ec4",
+          "body": "{\n  \"status\":\"SUCCESS\",\n  \"message\":\"Data has been saved\",\n  \"data\":{}\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "e3d4079a-67d9-4274-b512-ee7af985344d",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "menus",
+      "responses": [
+        {
+          "uuid": "fd354dbf-57f2-4946-92d1-46193d9c0e79",
+          "body": "{\n  \"status\":\"SUCCESS\",\n  \"message\":\"Data has been updated\",\n  \"data\":{}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "4b009500-2a98-4b58-984f-80ef5269c804",
+      "documentation": "",
+      "method": "delete",
+      "endpoint": "menus/:id",
+      "responses": [
+        {
+          "uuid": "0a6b39b9-54f0-4554-961e-a696d3050bc7",
+          "body": "{\n  \"status\":\"SUCCESS\",\n  \"message\":\"Data has been deleted\",\n  \"data\":{}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "3b70282e-bca7-493e-ac30-74a3e50b179c",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "tables",
+      "responses": [
+        {
+          "uuid": "eb238c9d-8fab-4248-a69d-fdff1d12d59d",
+          "body": "{\n  \"status\":\"200\",\n  \"message\":\"\",\n  \"data\":[{\n    \"id\" : \"TB001\",\n    \"nomor\" : \"001\",\n    \"status\" : \"Available\"\n  },\n  {\n    \"id\" : \"TB002\",\n    \"nomor\" : \"002\",\n    \"status\" : \"Available\"\n  },\n  {\n    \"id\" : \"TB003\",\n    \"nomor\" : \"003\",\n    \"status\" : \"Unavailable\"\n  },\n  {\n    \"id\" : \"TB004\",\n    \"nomor\" : \"004\",\n    \"status\" : \"Available\"\n  },\n  {\n    \"id\" : \"TB005\",\n    \"nomor\" : \"005\",\n    \"status\" : \"Unavailable\"\n  }\n  \n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "49bee1c9-74f3-45a5-b710-5c4d34487ba9",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "tables/:id",
+      "responses": [
+        {
+          "uuid": "43038787-b95c-4ce5-b986-345c9fa9e679",
+          "body": "{\n    \"id\" : \"TB001\",\n    \"nomor\" : \"001\",\n    \"status\" : \"Available\"\n  }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "74718fbd-106b-47d8-b18e-87bff9418620",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "tables",
+      "responses": [
+        {
+          "uuid": "671c864c-92d8-4727-8730-4a3f9772564a",
+          "body": "{\n  \"status\":\"SUCCESS\",\n  \"message\":\"Data has been saved\",\n  \"data\":{}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "cf8bf364-a3e0-41b3-9bd4-79dcc0d846ac",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "tables",
+      "responses": [
+        {
+          "uuid": "1403b58d-00c8-4475-93fb-9968987d2354",
+          "body": "{\n  \"status\":\"SUCCESS\",\n  \"message\":\"Data has been updated\",\n  \"data\":{}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "32d01aad-f151-4929-bcac-77a7f47a5bf3",
+      "documentation": "",
+      "method": "delete",
+      "endpoint": "tables/:id",
+      "responses": [
+        {
+          "uuid": "76fab7fe-4d20-4f2d-83b0-8218ebe61b5d",
+          "body": "{\n  \"status\":\"SUCCESS\",\n  \"message\":\"Data has been deleted\",\n  \"data\":{}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "c5d7a3a6-2a62-48f1-a993-b8702e937e37",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "customers",
+      "responses": [
+        {
+          "uuid": "60ede692-294c-46af-b4b4-d23c65a81628",
+          "body": "{\n  \"status\":\"200\",\n  \"message\":\"\",\n  \"data\":[{\n    \"id\" : \"CS001\",\n    \"nama\" : \"Yogic Panjaitan\",\n    \"email\" : \"zizki.dinanto@example.com\",\n    \"alamat\" : \"Jl h dahlan no 20\"\n  },\n  {\n    \"id\" : \"CS002\",\n    \"nama\" : \"Wilda Wicaksana\",\n    \"email\" : \"syawal@example.com\",\n    \"alamat\" : \"Jl h dahlan no 71\"\n  },\n  {\n    \"id\" : \"CS003\",\n    \"nama\" : \"Afi Praditya\",\n    \"email\" : \"bimobimbim@example.com\",\n    \"alamat\" : \"Jl h dahlan no 12\"\n  },\n  {\n    \"id\" : \"CS004\",\n    \"nama\" : \"Rian Pradipta\",\n    \"email\" : \"pandu@example.com\",\n    \"alamat\" : \"Jl h dahlan no 52\"\n  },\n  {\n    \"id\" : \"CS005\",\n    \"nama\" : \"Sidik Ayu\",\n    \"email\" : \"isti@example.com\",\n    \"alamat\" : \"Jl h dahlan no 66\"\n  },\n   {\n    \"id\" : \"CS006\",\n    \"nama\" : \"Inas Irfanda\",\n    \"email\" : \"adha@example.com\",\n    \"alamat\" : \"Jl h dahlan no 01\"\n  },\n   {\n    \"id\" : \"CS007\",\n    \"nama\" : \"Helmi Prakoso\",\n    \"email\" : \"risrian@example.com\",\n    \"alamat\" : \"Jl h dahlan no 05\"\n  },\n   {\n    \"id\" : \"CS008\",\n    \"nama\" : \"Indra Hashfi\",\n    \"email\" : \"ramzy@example.com\",\n    \"alamat\" : \"Jl h dahlan no 25\"\n  },\n   {\n    \"id\" : \"CS009\",\n    \"nama\" : \"Faisal Abdul Malik\",\n    \"email\" : \"choiryal@example.com\",\n    \"alamat\" : \"Jl h dahlan no 20\"\n  },\n   {\n    \"id\" : \"CS010\",\n    \"nama\" : \"Putri Bariz\",\n    \"email\" : \"miftah@example.com\",\n    \"alamat\" : \"Jl h dahlan no 20\"\n  }\n  \n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "de86aa15-f3ce-4f0a-8346-6bdc52b8d54a",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "customers/:id",
+      "responses": [
+        {
+          "uuid": "5daf3c4e-52ff-47ff-b1b4-fea03190c27d",
+          "body": "{\n    \"id\" : \"CS001\",\n    \"nama\" : \"Yogic Panjaitan\",\n    \"email\" : \"zizki.dinanto@example.com\",\n    \"alamat\" : \"Jl h dahlan no 20\"\n  }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "2a05a010-f27a-4643-a8d2-f3ad12e12025",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "customers",
+      "responses": [
+        {
+          "uuid": "1e6da9ae-da0d-4807-9459-edb22a829926",
+          "body": "{\n  \"status\":\"SUCCESS\",\n  \"message\":\"Data has been saved\",\n  \"data\":{}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "c151573c-a039-4796-9d20-b08c41f240f9",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "customers",
+      "responses": [
+        {
+          "uuid": "2f74e21b-664a-4669-9bfb-9dbb44275d15",
+          "body": "{\n  \"status\":\"SUCCESS\",\n  \"message\":\"Data has been updated\",\n  \"data\":{}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "6d5359eb-1f1a-4fd2-af34-77f16fc899ed",
+      "documentation": "",
+      "method": "delete",
+      "endpoint": "customers/:id",
+      "responses": [
+        {
+          "uuid": "24ac9e5e-ec75-49d3-b9b7-54f29e370919",
+          "body": "{\n  \"status\":\"SUCCESS\",\n  \"message\":\"Data has been deleted\",\n  \"data\":{}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "hostname": "0.0.0.0",
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  }
+}

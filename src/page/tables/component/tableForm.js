@@ -38,7 +38,7 @@ const TableForm = ({bloc}) => {
     initialValues: {
         id : '',
         nomor : '',
-        status : ''
+        status : 'Available'
     },
     validationSchema : Yup.object({
         id : Yup.string().required("field cannot be empty"),

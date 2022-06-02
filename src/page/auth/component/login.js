@@ -68,8 +68,8 @@ const Login = ({bloc}) => {
                        <br></br>
                        <div>
                            {
-                               isLoading.isLoading ? <button class="btn btn-primary" type="button" disabled>
-                               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                               isLoading.isLoading ? <button className="btn btn-primary" type="button" disabled>
+                               <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                Loading...
                            </button> :
                                <button type="submit"
