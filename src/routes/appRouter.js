@@ -8,6 +8,7 @@ import { CustomerList } from "../page/customer/component/customerList"
 import CustomerService from "../page/customer/service/customerService"
 import MenuFormBloc from "../page/menus/bloc/menuFormBloc"
 import MenuListBloc from "../page/menus/bloc/productListBloc"
+import useProductList from "../page/menus/bloc/useProductList"
 import MenuForm from "../page/menus/component/menuForm"
 import { MenuList } from "../page/menus/component/menuList"
 import MenuService from "../page/menus/service/menuService"
@@ -16,13 +17,14 @@ import TableListBloc from "../page/tables/bloc/tableListBloc"
 import TableForm from "../page/tables/component/tableForm"
 import { TableList } from "../page/tables/component/tableList"
 import TableService from "../page/tables/service/tablesService"
+import { RouteNavigate } from "./RoutesNavigation"
 
 const AppRouters = () => {
     return (
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='menus' element={<Outlet/>}>
-                <Route index element={<MenuList bloc={()=>MenuListBloc(MenuService)}/>}/>
+                <Route index element={<MenuList bloc={()=>MenuListBloc(MenuService, RouteNavigate, useProductList)}/>}/>
                 <Route path="form/:id" element={<MenuForm bloc={()=>MenuFormBloc(MenuService)}/>}/>
                 <Route path="form" element={<MenuForm bloc={()=>MenuFormBloc(MenuService)}/>}/>
                 <Route path='*' element={<PageNotFound/>}/>

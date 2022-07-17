@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { LoadingScreen } from '../../../layout/loadingScreen'
 
 export const MenuList = ({bloc}) => {
@@ -8,11 +7,15 @@ export const MenuList = ({bloc}) => {
   const {
     menuList,
     getAllMenu,
-    handleDelete
+    handleDelete,
+    handleAdd,
+    handleUpdate
   } = bloc ()
 
+  const {list} = menuList
+
   const loading = useSelector(state => state.global)
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   
   useEffect(()=>{
     getAllMenu()
@@ -23,7 +26,7 @@ export const MenuList = ({bloc}) => {
         {
             loading.isLoading ? <LoadingScreen/> :
             <>
-              <button className='btn btn-primary' onClick={()=>navigate('form')}> Add Menus</button>
+              <button className='btn btn-primary' onClick={()=>handleAdd()}> Add Menus</button>
                 <h2>Menu's List</h2>
                 <table className='table table-stipped'>
                     <thead>
@@ -36,14 +39,14 @@ export const MenuList = ({bloc}) => {
                     </thead>
                     <tbody>
                             {
-                                menuList.map((data, i) => {
+                                list.map((data, i) => {
                                 return(
                                     <tr key={data.id}>
                                         <td>{(i + 1)}</td>
                                         <td>{data.name}</td>
                                         <td>{data.price}</td>
                                         <td>
-                                            <button type='button' className='btn btn-warning' onClick={()=>navigate(`form/${data.id}`)}>Update</button>
+                                            <button type='button' className='btn btn-warning' onClick={()=>handleUpdate(data.id)}>Update</button>
                                             <button type='button' className='btn btn-danger' onClick={() => handleDelete(data)}>Delete</button>
                                         </td>
 
